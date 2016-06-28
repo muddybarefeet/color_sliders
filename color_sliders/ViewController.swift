@@ -16,17 +16,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        updateColor()
+        
     }
     
-    @IBAction func colorChange (sender: UISlider) {
+    @IBAction func colorChange () {
         
         // Make sure the program doesn't crash if the controls aren't connected
         if redSlider == nil {
             return
         }
+        
+        updateColor()
+        
+    }
+    
+    func updateColor () {
         
         let r: CGFloat = CGFloat(redSlider.value)
         let g: CGFloat = CGFloat(greenSlider.value)
